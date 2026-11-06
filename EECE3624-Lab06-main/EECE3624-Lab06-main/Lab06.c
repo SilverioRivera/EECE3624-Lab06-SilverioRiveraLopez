@@ -3,8 +3,8 @@
  *
  * Created: 10/4/2022 9:16:57 AM
  * Initial Coder: jfhutton
- * Current Coder: <TBD>
- * Modified:      <TBD>
+ * Current Coder: Silverio Rivera-Lopez
+ * Modified: Silverio Rivera-Lopez
  *
  * This lab uses hardware LEDs wired to PORTA, an interrupt from the joystick center
  * button, and a timer interrupt to build a game loop program that can display 
@@ -25,14 +25,26 @@
 // global variables for communication between ISRs and main
 const unsigned char TCNT0_COUNT_SET = 0x8E;// Count for 1ms loop (Provided by Prof Hutton)
 // <TBD> Your global variables should go here
+//enum Modes {Mode1, Mode2, Mode3}; 
+//enum Modes ModeOption;
 
 int main(void){
 	// Variables for main
 	// <TBD> Your local main variables should go here
+	//volatile unsigned int Mode = 0;
+	//volatile unsigned int Tick = 0;
+	 
 	
 	// State machine initialization.
+	//while(Tick == 50){
+		
+		
+	} 
+	// Initialization for LEDs 
+	// LEDs using A0-A7) 
 	
-	// Initialization for LEDs
+	
+	
 	// Set direction for A ports.
 	// (Prof Note:  This is similar to our two line assembly commands.)
 	
@@ -98,5 +110,20 @@ ISR(TIMER0_OVF_vect){
 ISR(INT0_vect){
 	
 	// <TBD>  
+	//switch(ModeOption){
+	//	case 0:	
+		//	Mode == 1;
+			//break;
+		//case 1:
+			//Mode == 2;
+			//break;
+		//case 2: 
+			//Mode == 3; 
+			//break;
+		//case 3:	
+			//Mode == 0;
+			//break;
+			
+	}
 	
 }
