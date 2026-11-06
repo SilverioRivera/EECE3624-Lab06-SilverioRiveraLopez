@@ -3,29 +3,31 @@ Lab06.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000000  00800100  00800100  00000198  2**0
+  0 .data         00000000  00800100  00800100  000003e6  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         00000144  00000000  00000000  00000054  2**1
+  1 .text         00000372  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .comment      00000030  00000000  00000000  00000198  2**0
+  2 .bss          00000003  00800100  00800100  000003e6  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  000003e6  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000001c8  2**2
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000418  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 00000030  00000000  00000000  00000208  2**0
+  5 .debug_aranges 00000030  00000000  00000000  00000458  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   0000086b  00000000  00000000  00000238  2**0
+  6 .debug_info   000008d4  00000000  00000000  00000488  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 000007ac  00000000  00000000  00000aa3  2**0
+  7 .debug_abbrev 000007cd  00000000  00000000  00000d5c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   00000268  00000000  00000000  0000124f  2**0
+  8 .debug_line   000003be  00000000  00000000  00001529  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000084  00000000  00000000  000014b8  2**2
+  9 .debug_frame  000000a8  00000000  00000000  000018e8  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00000422  00000000  00000000  0000153c  2**0
+ 10 .debug_str    00000467  00000000  00000000  00001990  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    000000f2  00000000  00000000  0000195e  2**0
+ 11 .debug_loc    0000014d  00000000  00000000  00001df7  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000020  00000000  00000000  00001a50  2**0
+ 12 .debug_ranges 00000020  00000000  00000000  00001f44  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -33,73 +35,73 @@ Disassembly of section .text:
 00000000 <__vectors>:
    0:	45 c0       	rjmp	.+138    	; 0x8c <__ctors_end>
    2:	00 00       	nop
-   4:	8a c0       	rjmp	.+276    	; 0x11a <__vector_1>
+   4:	75 c1       	rjmp	.+746    	; 0x2f0 <__vector_1>
    6:	00 00       	nop
-   8:	56 c0       	rjmp	.+172    	; 0xb6 <__bad_interrupt>
+   8:	5e c0       	rjmp	.+188    	; 0xc6 <__bad_interrupt>
    a:	00 00       	nop
-   c:	54 c0       	rjmp	.+168    	; 0xb6 <__bad_interrupt>
+   c:	5c c0       	rjmp	.+184    	; 0xc6 <__bad_interrupt>
    e:	00 00       	nop
-  10:	52 c0       	rjmp	.+164    	; 0xb6 <__bad_interrupt>
+  10:	5a c0       	rjmp	.+180    	; 0xc6 <__bad_interrupt>
   12:	00 00       	nop
-  14:	50 c0       	rjmp	.+160    	; 0xb6 <__bad_interrupt>
+  14:	58 c0       	rjmp	.+176    	; 0xc6 <__bad_interrupt>
   16:	00 00       	nop
-  18:	4e c0       	rjmp	.+156    	; 0xb6 <__bad_interrupt>
+  18:	56 c0       	rjmp	.+172    	; 0xc6 <__bad_interrupt>
   1a:	00 00       	nop
-  1c:	4c c0       	rjmp	.+152    	; 0xb6 <__bad_interrupt>
+  1c:	54 c0       	rjmp	.+168    	; 0xc6 <__bad_interrupt>
   1e:	00 00       	nop
-  20:	4a c0       	rjmp	.+148    	; 0xb6 <__bad_interrupt>
+  20:	52 c0       	rjmp	.+164    	; 0xc6 <__bad_interrupt>
   22:	00 00       	nop
-  24:	48 c0       	rjmp	.+144    	; 0xb6 <__bad_interrupt>
+  24:	50 c0       	rjmp	.+160    	; 0xc6 <__bad_interrupt>
   26:	00 00       	nop
-  28:	46 c0       	rjmp	.+140    	; 0xb6 <__bad_interrupt>
+  28:	4e c0       	rjmp	.+156    	; 0xc6 <__bad_interrupt>
   2a:	00 00       	nop
-  2c:	44 c0       	rjmp	.+136    	; 0xb6 <__bad_interrupt>
+  2c:	4c c0       	rjmp	.+152    	; 0xc6 <__bad_interrupt>
   2e:	00 00       	nop
-  30:	42 c0       	rjmp	.+132    	; 0xb6 <__bad_interrupt>
+  30:	4a c0       	rjmp	.+148    	; 0xc6 <__bad_interrupt>
   32:	00 00       	nop
-  34:	40 c0       	rjmp	.+128    	; 0xb6 <__bad_interrupt>
+  34:	48 c0       	rjmp	.+144    	; 0xc6 <__bad_interrupt>
   36:	00 00       	nop
-  38:	3e c0       	rjmp	.+124    	; 0xb6 <__bad_interrupt>
+  38:	46 c0       	rjmp	.+140    	; 0xc6 <__bad_interrupt>
   3a:	00 00       	nop
-  3c:	3c c0       	rjmp	.+120    	; 0xb6 <__bad_interrupt>
+  3c:	44 c0       	rjmp	.+136    	; 0xc6 <__bad_interrupt>
   3e:	00 00       	nop
-  40:	59 c0       	rjmp	.+178    	; 0xf4 <__vector_16>
+  40:	26 c1       	rjmp	.+588    	; 0x28e <__vector_16>
   42:	00 00       	nop
-  44:	38 c0       	rjmp	.+112    	; 0xb6 <__bad_interrupt>
+  44:	40 c0       	rjmp	.+128    	; 0xc6 <__bad_interrupt>
   46:	00 00       	nop
-  48:	36 c0       	rjmp	.+108    	; 0xb6 <__bad_interrupt>
+  48:	3e c0       	rjmp	.+124    	; 0xc6 <__bad_interrupt>
   4a:	00 00       	nop
-  4c:	34 c0       	rjmp	.+104    	; 0xb6 <__bad_interrupt>
+  4c:	3c c0       	rjmp	.+120    	; 0xc6 <__bad_interrupt>
   4e:	00 00       	nop
-  50:	32 c0       	rjmp	.+100    	; 0xb6 <__bad_interrupt>
+  50:	3a c0       	rjmp	.+116    	; 0xc6 <__bad_interrupt>
   52:	00 00       	nop
-  54:	30 c0       	rjmp	.+96     	; 0xb6 <__bad_interrupt>
+  54:	38 c0       	rjmp	.+112    	; 0xc6 <__bad_interrupt>
   56:	00 00       	nop
-  58:	2e c0       	rjmp	.+92     	; 0xb6 <__bad_interrupt>
+  58:	36 c0       	rjmp	.+108    	; 0xc6 <__bad_interrupt>
   5a:	00 00       	nop
-  5c:	2c c0       	rjmp	.+88     	; 0xb6 <__bad_interrupt>
+  5c:	34 c0       	rjmp	.+104    	; 0xc6 <__bad_interrupt>
   5e:	00 00       	nop
-  60:	2a c0       	rjmp	.+84     	; 0xb6 <__bad_interrupt>
+  60:	32 c0       	rjmp	.+100    	; 0xc6 <__bad_interrupt>
   62:	00 00       	nop
-  64:	28 c0       	rjmp	.+80     	; 0xb6 <__bad_interrupt>
+  64:	30 c0       	rjmp	.+96     	; 0xc6 <__bad_interrupt>
   66:	00 00       	nop
-  68:	26 c0       	rjmp	.+76     	; 0xb6 <__bad_interrupt>
+  68:	2e c0       	rjmp	.+92     	; 0xc6 <__bad_interrupt>
   6a:	00 00       	nop
-  6c:	24 c0       	rjmp	.+72     	; 0xb6 <__bad_interrupt>
+  6c:	2c c0       	rjmp	.+88     	; 0xc6 <__bad_interrupt>
   6e:	00 00       	nop
-  70:	22 c0       	rjmp	.+68     	; 0xb6 <__bad_interrupt>
+  70:	2a c0       	rjmp	.+84     	; 0xc6 <__bad_interrupt>
   72:	00 00       	nop
-  74:	20 c0       	rjmp	.+64     	; 0xb6 <__bad_interrupt>
+  74:	28 c0       	rjmp	.+80     	; 0xc6 <__bad_interrupt>
   76:	00 00       	nop
-  78:	1e c0       	rjmp	.+60     	; 0xb6 <__bad_interrupt>
+  78:	26 c0       	rjmp	.+76     	; 0xc6 <__bad_interrupt>
   7a:	00 00       	nop
-  7c:	1c c0       	rjmp	.+56     	; 0xb6 <__bad_interrupt>
+  7c:	24 c0       	rjmp	.+72     	; 0xc6 <__bad_interrupt>
   7e:	00 00       	nop
-  80:	1a c0       	rjmp	.+52     	; 0xb6 <__bad_interrupt>
+  80:	22 c0       	rjmp	.+68     	; 0xc6 <__bad_interrupt>
   82:	00 00       	nop
-  84:	18 c0       	rjmp	.+48     	; 0xb6 <__bad_interrupt>
+  84:	20 c0       	rjmp	.+64     	; 0xc6 <__bad_interrupt>
   86:	00 00       	nop
-  88:	16 c0       	rjmp	.+44     	; 0xb6 <__bad_interrupt>
+  88:	1e c0       	rjmp	.+60     	; 0xc6 <__bad_interrupt>
 	...
 
 0000008c <__ctors_end>:
@@ -114,8 +116,8 @@ Disassembly of section .text:
   98:	11 e0       	ldi	r17, 0x01	; 1
   9a:	a0 e0       	ldi	r26, 0x00	; 0
   9c:	b1 e0       	ldi	r27, 0x01	; 1
-  9e:	e4 e4       	ldi	r30, 0x44	; 68
-  a0:	f1 e0       	ldi	r31, 0x01	; 1
+  9e:	e2 e7       	ldi	r30, 0x72	; 114
+  a0:	f3 e0       	ldi	r31, 0x03	; 3
   a2:	00 e0       	ldi	r16, 0x00	; 0
   a4:	0b bf       	out	0x3b, r16	; 59
   a6:	02 c0       	rjmp	.+4      	; 0xac <__do_copy_data+0x14>
@@ -124,134 +126,520 @@ Disassembly of section .text:
   ac:	a0 30       	cpi	r26, 0x00	; 0
   ae:	b1 07       	cpc	r27, r17
   b0:	d9 f7       	brne	.-10     	; 0xa8 <__do_copy_data+0x10>
-  b2:	02 d0       	rcall	.+4      	; 0xb8 <main>
-  b4:	45 c0       	rjmp	.+138    	; 0x140 <_exit>
 
-000000b6 <__bad_interrupt>:
-  b6:	a4 cf       	rjmp	.-184    	; 0x0 <__vectors>
+000000b2 <__do_clear_bss>:
+  b2:	21 e0       	ldi	r18, 0x01	; 1
+  b4:	a0 e0       	ldi	r26, 0x00	; 0
+  b6:	b1 e0       	ldi	r27, 0x01	; 1
+  b8:	01 c0       	rjmp	.+2      	; 0xbc <.do_clear_bss_start>
 
-000000b8 <main>:
+000000ba <.do_clear_bss_loop>:
+  ba:	1d 92       	st	X+, r1
+
+000000bc <.do_clear_bss_start>:
+  bc:	a3 30       	cpi	r26, 0x03	; 3
+  be:	b2 07       	cpc	r27, r18
+  c0:	e1 f7       	brne	.-8      	; 0xba <.do_clear_bss_loop>
+  c2:	02 d0       	rcall	.+4      	; 0xc8 <main>
+  c4:	54 c1       	rjmp	.+680    	; 0x36e <_exit>
+
+000000c6 <__bad_interrupt>:
+  c6:	9c cf       	rjmp	.-200    	; 0x0 <__vectors>
+
+000000c8 <main>:
+volatile enum Modes ModeOption = Mode0;
+volatile unsigned char Tick = 0;
+volatile unsigned char ChangeMode = 0;
 	
-// global variables for communication between ISRs and main
-const unsigned char TCNT0_COUNT_SET = 0x8E;// Count for 1ms loop (Provided by Prof Hutton)
-// <TBD> Your global variables should go here
 
 int main(void){
-  b8:	cf 93       	push	r28
-  ba:	df 93       	push	r29
-  bc:	00 d0       	rcall	.+0      	; 0xbe <main+0x6>
-  be:	00 d0       	rcall	.+0      	; 0xc0 <main+0x8>
-  c0:	cd b7       	in	r28, 0x3d	; 61
-  c2:	de b7       	in	r29, 0x3e	; 62
+  c8:	cf 93       	push	r28
+  ca:	df 93       	push	r29
+  cc:	00 d0       	rcall	.+0      	; 0xce <main+0x6>
+  ce:	cd b7       	in	r28, 0x3d	; 61
+  d0:	de b7       	in	r29, 0x3e	; 62
 	// Variables for main
 	// <TBD> Your local main variables should go here
-	int Mode = 0; 
-  c4:	1a 82       	std	Y+2, r1	; 0x02
-  c6:	19 82       	std	Y+1, r1	; 0x01
-	int Tick = 0;
-  c8:	1c 82       	std	Y+4, r1	; 0x04
-  ca:	1b 82       	std	Y+3, r1	; 0x03
-	// Initialization for LEDs
+	unsigned char LEDposition = 0;
+  d2:	19 82       	std	Y+1, r1	; 0x01
+	signed char direction = 1;
+  d4:	81 e0       	ldi	r24, 0x01	; 1
+  d6:	8a 83       	std	Y+2, r24	; 0x02
+	
+	ModeOption = Mode0;
+  d8:	10 92 00 01 	sts	0x0100, r1	; 0x800100 <__DATA_REGION_ORIGIN__>
+	Tick = 0;
+  dc:	10 92 01 01 	sts	0x0101, r1	; 0x800101 <Tick>
+	ChangeMode = 0;
+  e0:	10 92 02 01 	sts	0x0102, r1	; 0x800102 <ChangeMode>
+	
 	
 	// Set direction for A ports.
 	// (Prof Note:  This is similar to our two line assembly commands.)
 	
 	DDRA = 0xFF;  // Set the Direction for all PORTA pints to be outputs
-  cc:	8a e3       	ldi	r24, 0x3A	; 58
-  ce:	90 e0       	ldi	r25, 0x00	; 0
-  d0:	2f ef       	ldi	r18, 0xFF	; 255
-  d2:	fc 01       	movw	r30, r24
-  d4:	20 83       	st	Z, r18
+  e4:	8a e3       	ldi	r24, 0x3A	; 58
+  e6:	90 e0       	ldi	r25, 0x00	; 0
+  e8:	2f ef       	ldi	r18, 0xFF	; 255
+  ea:	fc 01       	movw	r30, r24
+  ec:	20 83       	st	Z, r18
 	LEDS = 0xFF;  // Set the PORTA for all pins to be high (i.e. OFF)
-  d6:	8b e3       	ldi	r24, 0x3B	; 59
-  d8:	90 e0       	ldi	r25, 0x00	; 0
-  da:	2f ef       	ldi	r18, 0xFF	; 255
-  dc:	fc 01       	movw	r30, r24
-  de:	20 83       	st	Z, r18
-	// <TBD>  Student code here
+  ee:	8b e3       	ldi	r24, 0x3B	; 59
+  f0:	90 e0       	ldi	r25, 0x00	; 0
+  f2:	2f ef       	ldi	r18, 0xFF	; 255
+  f4:	fc 01       	movw	r30, r24
+  f6:	20 83       	st	Z, r18
+	// Port Initialization
+	// Using the LED PORTA initilization above and your Lab05 code, 
+	// Configure the joystick button.
+	// (Prof Note: you will need to add another jumper wire, or 
+	// change the ones you have, to get the center button working!
+	TCNT0 = TCNT0_COUNT_SET;
+  f8:	82 e5       	ldi	r24, 0x52	; 82
+  fa:	90 e0       	ldi	r25, 0x00	; 0
+  fc:	2e e8       	ldi	r18, 0x8E	; 142
+  fe:	fc 01       	movw	r30, r24
+ 100:	20 83       	st	Z, r18
+	TCCR0 = (1 << CS01) | (1 << CS00);
+ 102:	83 e5       	ldi	r24, 0x53	; 83
+ 104:	90 e0       	ldi	r25, 0x00	; 0
+ 106:	23 e0       	ldi	r18, 0x03	; 3
+ 108:	fc 01       	movw	r30, r24
+ 10a:	20 83       	st	Z, r18
+	TIMSK |= (1 << TOIE0);
+ 10c:	87 e5       	ldi	r24, 0x57	; 87
+ 10e:	90 e0       	ldi	r25, 0x00	; 0
+ 110:	27 e5       	ldi	r18, 0x57	; 87
+ 112:	30 e0       	ldi	r19, 0x00	; 0
+ 114:	f9 01       	movw	r30, r18
+ 116:	20 81       	ld	r18, Z
+ 118:	21 60       	ori	r18, 0x01	; 1
+ 11a:	fc 01       	movw	r30, r24
+ 11c:	20 83       	st	Z, r18
+	
+	
+	// JoyStick
+	
+	DDRB &= ~(1 << PB4);
+ 11e:	87 e3       	ldi	r24, 0x37	; 55
+ 120:	90 e0       	ldi	r25, 0x00	; 0
+ 122:	27 e3       	ldi	r18, 0x37	; 55
+ 124:	30 e0       	ldi	r19, 0x00	; 0
+ 126:	f9 01       	movw	r30, r18
+ 128:	20 81       	ld	r18, Z
+ 12a:	2f 7e       	andi	r18, 0xEF	; 239
+ 12c:	fc 01       	movw	r30, r24
+ 12e:	20 83       	st	Z, r18
+	PORTB |= (1 << PB4);
+ 130:	88 e3       	ldi	r24, 0x38	; 56
+ 132:	90 e0       	ldi	r25, 0x00	; 0
+ 134:	28 e3       	ldi	r18, 0x38	; 56
+ 136:	30 e0       	ldi	r19, 0x00	; 0
+ 138:	f9 01       	movw	r30, r18
+ 13a:	20 81       	ld	r18, Z
+ 13c:	20 61       	ori	r18, 0x10	; 16
+ 13e:	fc 01       	movw	r30, r24
+ 140:	20 83       	st	Z, r18
+	DDRD &= ~(1 << PD0);
+ 142:	81 e3       	ldi	r24, 0x31	; 49
+ 144:	90 e0       	ldi	r25, 0x00	; 0
+ 146:	21 e3       	ldi	r18, 0x31	; 49
+ 148:	30 e0       	ldi	r19, 0x00	; 0
+ 14a:	f9 01       	movw	r30, r18
+ 14c:	20 81       	ld	r18, Z
+ 14e:	2e 7f       	andi	r18, 0xFE	; 254
+ 150:	fc 01       	movw	r30, r24
+ 152:	20 83       	st	Z, r18
+	PORTD |= (1 << PD0);
+ 154:	82 e3       	ldi	r24, 0x32	; 50
+ 156:	90 e0       	ldi	r25, 0x00	; 0
+ 158:	22 e3       	ldi	r18, 0x32	; 50
+ 15a:	30 e0       	ldi	r19, 0x00	; 0
+ 15c:	f9 01       	movw	r30, r18
+ 15e:	20 81       	ld	r18, Z
+ 160:	21 60       	ori	r18, 0x01	; 1
+ 162:	fc 01       	movw	r30, r24
+ 164:	20 83       	st	Z, r18
+	
 	
 	// Interrupt Enable Block
 	// Using your Lab05 code, you will need to update these
 	// lines from 0x00 to have the appropriate mask.
-	EICRA = 0x00;  // <TBD> Needs to be updated!
-  e0:	8a e6       	ldi	r24, 0x6A	; 106
-  e2:	90 e0       	ldi	r25, 0x00	; 0
-  e4:	fc 01       	movw	r30, r24
-  e6:	10 82       	st	Z, r1
-	EIMSK = 0x00;  // <TBD> Needs to be updated!
-  e8:	89 e5       	ldi	r24, 0x59	; 89
-  ea:	90 e0       	ldi	r25, 0x00	; 0
-  ec:	fc 01       	movw	r30, r24
-  ee:	10 82       	st	Z, r1
+	EICRA = (1 << ISC01) | (1 << ISC00);  // <TBD> Needs to be updated!
+ 166:	8a e6       	ldi	r24, 0x6A	; 106
+ 168:	90 e0       	ldi	r25, 0x00	; 0
+ 16a:	23 e0       	ldi	r18, 0x03	; 3
+ 16c:	fc 01       	movw	r30, r24
+ 16e:	20 83       	st	Z, r18
+	EIMSK = (1 << INT0);  // <TBD> Needs to be updated!
+ 170:	89 e5       	ldi	r24, 0x59	; 89
+ 172:	90 e0       	ldi	r25, 0x00	; 0
+ 174:	21 e0       	ldi	r18, 0x01	; 1
+ 176:	fc 01       	movw	r30, r24
+ 178:	20 83       	st	Z, r18
 	// Enable Global Interrupts
 	sei();
-  f0:	78 94       	sei
+ 17a:	78 94       	sei
+	
+	// Main Loop
 	while (1) {
 		// Your game loop will go here.
-		
+		if( ChangeMode)
+ 17c:	80 91 02 01 	lds	r24, 0x0102	; 0x800102 <ChangeMode>
+ 180:	88 23       	and	r24, r24
+ 182:	61 f0       	breq	.+24     	; 0x19c <main+0xd4>
+		{
+			LEDposition = 0;
+ 184:	19 82       	std	Y+1, r1	; 0x01
+			direction = 1;
+ 186:	81 e0       	ldi	r24, 0x01	; 1
+ 188:	8a 83       	std	Y+2, r24	; 0x02
+			ChangeMode = 0;
+ 18a:	10 92 02 01 	sts	0x0102, r1	; 0x800102 <ChangeMode>
+			Tick = 0;
+ 18e:	10 92 01 01 	sts	0x0101, r1	; 0x800101 <Tick>
+			LEDS = 0xFF; 
+ 192:	8b e3       	ldi	r24, 0x3B	; 59
+ 194:	90 e0       	ldi	r25, 0x00	; 0
+ 196:	2f ef       	ldi	r18, 0xFF	; 255
+ 198:	fc 01       	movw	r30, r24
+ 19a:	20 83       	st	Z, r18
+		}
 		// <TBD>  Game Loop
 		
+	
+		if (Tick >= 50)
+ 19c:	80 91 01 01 	lds	r24, 0x0101	; 0x800101 <Tick>
+ 1a0:	82 33       	cpi	r24, 0x32	; 50
+ 1a2:	60 f3       	brcs	.-40     	; 0x17c <main+0xb4>
+		{
+			Tick = 0;
+ 1a4:	10 92 01 01 	sts	0x0101, r1	; 0x800101 <Tick>
+		
+			switch (ModeOption)
+ 1a8:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
+ 1ac:	88 2f       	mov	r24, r24
+ 1ae:	90 e0       	ldi	r25, 0x00	; 0
+ 1b0:	81 30       	cpi	r24, 0x01	; 1
+ 1b2:	91 05       	cpc	r25, r1
+ 1b4:	29 f1       	breq	.+74     	; 0x200 <main+0x138>
+ 1b6:	82 30       	cpi	r24, 0x02	; 2
+ 1b8:	91 05       	cpc	r25, r1
+ 1ba:	1c f4       	brge	.+6      	; 0x1c2 <main+0xfa>
+ 1bc:	89 2b       	or	r24, r25
+ 1be:	41 f0       	breq	.+16     	; 0x1d0 <main+0x108>
+ 1c0:	5f c0       	rjmp	.+190    	; 0x280 <main+0x1b8>
+ 1c2:	82 30       	cpi	r24, 0x02	; 2
+ 1c4:	91 05       	cpc	r25, r1
+ 1c6:	b9 f1       	breq	.+110    	; 0x236 <main+0x16e>
+ 1c8:	03 97       	sbiw	r24, 0x03	; 3
+ 1ca:	09 f4       	brne	.+2      	; 0x1ce <main+0x106>
+ 1cc:	53 c0       	rjmp	.+166    	; 0x274 <main+0x1ac>
+ 1ce:	58 c0       	rjmp	.+176    	; 0x280 <main+0x1b8>
+			{
+			case Mode0:
+				LEDS = (unsigned char)~(1 << LEDposition);
+ 1d0:	8b e3       	ldi	r24, 0x3B	; 59
+ 1d2:	90 e0       	ldi	r25, 0x00	; 0
+ 1d4:	29 81       	ldd	r18, Y+1	; 0x01
+ 1d6:	42 2f       	mov	r20, r18
+ 1d8:	50 e0       	ldi	r21, 0x00	; 0
+ 1da:	21 e0       	ldi	r18, 0x01	; 1
+ 1dc:	30 e0       	ldi	r19, 0x00	; 0
+ 1de:	02 c0       	rjmp	.+4      	; 0x1e4 <main+0x11c>
+ 1e0:	22 0f       	add	r18, r18
+ 1e2:	33 1f       	adc	r19, r19
+ 1e4:	4a 95       	dec	r20
+ 1e6:	e2 f7       	brpl	.-8      	; 0x1e0 <main+0x118>
+ 1e8:	20 95       	com	r18
+ 1ea:	fc 01       	movw	r30, r24
+ 1ec:	20 83       	st	Z, r18
+				LEDposition++;
+ 1ee:	89 81       	ldd	r24, Y+1	; 0x01
+ 1f0:	8f 5f       	subi	r24, 0xFF	; 255
+ 1f2:	89 83       	std	Y+1, r24	; 0x01
+				
+				if (LEDposition >= 8)
+ 1f4:	89 81       	ldd	r24, Y+1	; 0x01
+ 1f6:	88 30       	cpi	r24, 0x08	; 8
+ 1f8:	08 f4       	brcc	.+2      	; 0x1fc <main+0x134>
+ 1fa:	45 c0       	rjmp	.+138    	; 0x286 <main+0x1be>
+				{
+					LEDposition = 0;
+ 1fc:	19 82       	std	Y+1, r1	; 0x01
+				}
+				
+				break;
+ 1fe:	43 c0       	rjmp	.+134    	; 0x286 <main+0x1be>
+				
+			case Mode1: 
+				LEDS = (unsigned char)~(1 << (7 - LEDposition));
+ 200:	8b e3       	ldi	r24, 0x3B	; 59
+ 202:	90 e0       	ldi	r25, 0x00	; 0
+ 204:	29 81       	ldd	r18, Y+1	; 0x01
+ 206:	22 2f       	mov	r18, r18
+ 208:	30 e0       	ldi	r19, 0x00	; 0
+ 20a:	47 e0       	ldi	r20, 0x07	; 7
+ 20c:	50 e0       	ldi	r21, 0x00	; 0
+ 20e:	42 1b       	sub	r20, r18
+ 210:	53 0b       	sbc	r21, r19
+ 212:	21 e0       	ldi	r18, 0x01	; 1
+ 214:	30 e0       	ldi	r19, 0x00	; 0
+ 216:	02 c0       	rjmp	.+4      	; 0x21c <main+0x154>
+ 218:	22 0f       	add	r18, r18
+ 21a:	33 1f       	adc	r19, r19
+ 21c:	4a 95       	dec	r20
+ 21e:	e2 f7       	brpl	.-8      	; 0x218 <main+0x150>
+ 220:	20 95       	com	r18
+ 222:	fc 01       	movw	r30, r24
+ 224:	20 83       	st	Z, r18
+				LEDposition++;
+ 226:	89 81       	ldd	r24, Y+1	; 0x01
+ 228:	8f 5f       	subi	r24, 0xFF	; 255
+ 22a:	89 83       	std	Y+1, r24	; 0x01
+				
+				if( LEDposition >= 8)
+ 22c:	89 81       	ldd	r24, Y+1	; 0x01
+ 22e:	88 30       	cpi	r24, 0x08	; 8
+ 230:	60 f1       	brcs	.+88     	; 0x28a <main+0x1c2>
+				{
+					LEDposition = 0;
+ 232:	19 82       	std	Y+1, r1	; 0x01
+				}
+				
+				break;
+ 234:	2a c0       	rjmp	.+84     	; 0x28a <main+0x1c2>
+				
+			case Mode2:
+				LEDS = (unsigned char)~(1 << LEDposition);
+ 236:	8b e3       	ldi	r24, 0x3B	; 59
+ 238:	90 e0       	ldi	r25, 0x00	; 0
+ 23a:	29 81       	ldd	r18, Y+1	; 0x01
+ 23c:	42 2f       	mov	r20, r18
+ 23e:	50 e0       	ldi	r21, 0x00	; 0
+ 240:	21 e0       	ldi	r18, 0x01	; 1
+ 242:	30 e0       	ldi	r19, 0x00	; 0
+ 244:	02 c0       	rjmp	.+4      	; 0x24a <main+0x182>
+ 246:	22 0f       	add	r18, r18
+ 248:	33 1f       	adc	r19, r19
+ 24a:	4a 95       	dec	r20
+ 24c:	e2 f7       	brpl	.-8      	; 0x246 <main+0x17e>
+ 24e:	20 95       	com	r18
+ 250:	fc 01       	movw	r30, r24
+ 252:	20 83       	st	Z, r18
+				
+				if (LEDposition ==7)
+ 254:	89 81       	ldd	r24, Y+1	; 0x01
+ 256:	87 30       	cpi	r24, 0x07	; 7
+ 258:	19 f4       	brne	.+6      	; 0x260 <main+0x198>
+				{
+					direction = -1;
+ 25a:	8f ef       	ldi	r24, 0xFF	; 255
+ 25c:	8a 83       	std	Y+2, r24	; 0x02
+ 25e:	05 c0       	rjmp	.+10     	; 0x26a <main+0x1a2>
+				}
+				
+				else if (LEDposition == 0)
+ 260:	89 81       	ldd	r24, Y+1	; 0x01
+ 262:	88 23       	and	r24, r24
+ 264:	11 f4       	brne	.+4      	; 0x26a <main+0x1a2>
+				{
+					direction = 1;
+ 266:	81 e0       	ldi	r24, 0x01	; 1
+ 268:	8a 83       	std	Y+2, r24	; 0x02
+				}
+				
+				LEDposition += direction;
+ 26a:	8a 81       	ldd	r24, Y+2	; 0x02
+ 26c:	99 81       	ldd	r25, Y+1	; 0x01
+ 26e:	89 0f       	add	r24, r25
+ 270:	89 83       	std	Y+1, r24	; 0x01
+				
+				break;
+ 272:	0c c0       	rjmp	.+24     	; 0x28c <main+0x1c4>
+				
+			case Mode3:
+					
+				LEDS = 0xFF;
+ 274:	8b e3       	ldi	r24, 0x3B	; 59
+ 276:	90 e0       	ldi	r25, 0x00	; 0
+ 278:	2f ef       	ldi	r18, 0xFF	; 255
+ 27a:	fc 01       	movw	r30, r24
+ 27c:	20 83       	st	Z, r18
+				break;
+ 27e:	06 c0       	rjmp	.+12     	; 0x28c <main+0x1c4>
+			default:
+				
+				ModeOption = Mode0;
+ 280:	10 92 00 01 	sts	0x0100, r1	; 0x800100 <__DATA_REGION_ORIGIN__>
+				break;
+ 284:	03 c0       	rjmp	.+6      	; 0x28c <main+0x1c4>
+				if (LEDposition >= 8)
+				{
+					LEDposition = 0;
+				}
+				
+				break;
+ 286:	00 00       	nop
+ 288:	79 cf       	rjmp	.-270    	; 0x17c <main+0xb4>
+				if( LEDposition >= 8)
+				{
+					LEDposition = 0;
+				}
+				
+				break;
+ 28a:	00 00       	nop
+				ModeOption = Mode0;
+				break;
+			}
+		}
+	
 	}
-  f2:	ff cf       	rjmp	.-2      	; 0xf2 <main+0x3a>
+ 28c:	77 cf       	rjmp	.-274    	; 0x17c <main+0xb4>
 
-000000f4 <__vector_16>:
+0000028e <__vector_16>:
 
 // This is the required format of an ISR routine for a 
 // Timer.  Your ISR code should go inside
 // (Prof Note:  When you define this correctly, the JUMP TABLE
 //  will be properly updated by the compiler.  (Thank you 
 ISR(TIMER0_OVF_vect){
-  f4:	1f 92       	push	r1
-  f6:	0f 92       	push	r0
-  f8:	00 90 5f 00 	lds	r0, 0x005F	; 0x80005f <__TEXT_REGION_LENGTH__+0x7e005f>
-  fc:	0f 92       	push	r0
-  fe:	11 24       	eor	r1, r1
- 100:	cf 93       	push	r28
- 102:	df 93       	push	r29
- 104:	cd b7       	in	r28, 0x3d	; 61
- 106:	de b7       	in	r29, 0x3e	; 62
+ 28e:	1f 92       	push	r1
+ 290:	0f 92       	push	r0
+ 292:	00 90 5f 00 	lds	r0, 0x005F	; 0x80005f <__TEXT_REGION_LENGTH__+0x7e005f>
+ 296:	0f 92       	push	r0
+ 298:	11 24       	eor	r1, r1
+ 29a:	00 90 5b 00 	lds	r0, 0x005B	; 0x80005b <__TEXT_REGION_LENGTH__+0x7e005b>
+ 29e:	0f 92       	push	r0
+ 2a0:	2f 93       	push	r18
+ 2a2:	8f 93       	push	r24
+ 2a4:	9f 93       	push	r25
+ 2a6:	ef 93       	push	r30
+ 2a8:	ff 93       	push	r31
+ 2aa:	cf 93       	push	r28
+ 2ac:	df 93       	push	r29
+ 2ae:	cd b7       	in	r28, 0x3d	; 61
+ 2b0:	de b7       	in	r29, 0x3e	; 62
 	
 	// <TBD>  ISR code for timer interrupt.
+	TCNT0 = TCNT0_COUNT_SET;
+ 2b2:	82 e5       	ldi	r24, 0x52	; 82
+ 2b4:	90 e0       	ldi	r25, 0x00	; 0
+ 2b6:	2e e8       	ldi	r18, 0x8E	; 142
+ 2b8:	fc 01       	movw	r30, r24
+ 2ba:	20 83       	st	Z, r18
+	
+	if (Tick < 50){
+ 2bc:	80 91 01 01 	lds	r24, 0x0101	; 0x800101 <Tick>
+ 2c0:	82 33       	cpi	r24, 0x32	; 50
+ 2c2:	28 f4       	brcc	.+10     	; 0x2ce <__vector_16+0x40>
+		Tick++;
+ 2c4:	80 91 01 01 	lds	r24, 0x0101	; 0x800101 <Tick>
+ 2c8:	8f 5f       	subi	r24, 0xFF	; 255
+ 2ca:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <Tick>
+	}
 	
 }
- 108:	00 00       	nop
- 10a:	df 91       	pop	r29
- 10c:	cf 91       	pop	r28
- 10e:	0f 90       	pop	r0
- 110:	00 92 5f 00 	sts	0x005F, r0	; 0x80005f <__TEXT_REGION_LENGTH__+0x7e005f>
- 114:	0f 90       	pop	r0
- 116:	1f 90       	pop	r1
- 118:	18 95       	reti
+ 2ce:	00 00       	nop
+ 2d0:	df 91       	pop	r29
+ 2d2:	cf 91       	pop	r28
+ 2d4:	ff 91       	pop	r31
+ 2d6:	ef 91       	pop	r30
+ 2d8:	9f 91       	pop	r25
+ 2da:	8f 91       	pop	r24
+ 2dc:	2f 91       	pop	r18
+ 2de:	0f 90       	pop	r0
+ 2e0:	00 92 5b 00 	sts	0x005B, r0	; 0x80005b <__TEXT_REGION_LENGTH__+0x7e005b>
+ 2e4:	0f 90       	pop	r0
+ 2e6:	00 92 5f 00 	sts	0x005F, r0	; 0x80005f <__TEXT_REGION_LENGTH__+0x7e005f>
+ 2ea:	0f 90       	pop	r0
+ 2ec:	1f 90       	pop	r1
+ 2ee:	18 95       	reti
 
-0000011a <__vector_1>:
+000002f0 <__vector_1>:
 
 // This is the required format of an ISR routine for a
 // Hardware Pin Interupt.  Format is "PIN#_vect" where 
 // '#' is the number of the interupt...  PD0->0, PD1->1, etc
 ISR(INT0_vect){
- 11a:	1f 92       	push	r1
- 11c:	0f 92       	push	r0
- 11e:	00 90 5f 00 	lds	r0, 0x005F	; 0x80005f <__TEXT_REGION_LENGTH__+0x7e005f>
- 122:	0f 92       	push	r0
- 124:	11 24       	eor	r1, r1
- 126:	cf 93       	push	r28
- 128:	df 93       	push	r29
- 12a:	cd b7       	in	r28, 0x3d	; 61
- 12c:	de b7       	in	r29, 0x3e	; 62
+ 2f0:	1f 92       	push	r1
+ 2f2:	0f 92       	push	r0
+ 2f4:	00 90 5f 00 	lds	r0, 0x005F	; 0x80005f <__TEXT_REGION_LENGTH__+0x7e005f>
+ 2f8:	0f 92       	push	r0
+ 2fa:	11 24       	eor	r1, r1
+ 2fc:	8f 93       	push	r24
+ 2fe:	9f 93       	push	r25
+ 300:	cf 93       	push	r28
+ 302:	df 93       	push	r29
+ 304:	cd b7       	in	r28, 0x3d	; 61
+ 306:	de b7       	in	r29, 0x3e	; 62
 	
 	// <TBD>  
-	
- 12e:	00 00       	nop
- 130:	df 91       	pop	r29
- 132:	cf 91       	pop	r28
- 134:	0f 90       	pop	r0
- 136:	00 92 5f 00 	sts	0x005F, r0	; 0x80005f <__TEXT_REGION_LENGTH__+0x7e005f>
- 13a:	0f 90       	pop	r0
- 13c:	1f 90       	pop	r1
- 13e:	18 95       	reti
+	switch(ModeOption){
+ 308:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
+ 30c:	88 2f       	mov	r24, r24
+ 30e:	90 e0       	ldi	r25, 0x00	; 0
+ 310:	81 30       	cpi	r24, 0x01	; 1
+ 312:	91 05       	cpc	r25, r1
+ 314:	81 f0       	breq	.+32     	; 0x336 <__vector_1+0x46>
+ 316:	82 30       	cpi	r24, 0x02	; 2
+ 318:	91 05       	cpc	r25, r1
+ 31a:	1c f4       	brge	.+6      	; 0x322 <__vector_1+0x32>
+ 31c:	89 2b       	or	r24, r25
+ 31e:	39 f0       	breq	.+14     	; 0x32e <__vector_1+0x3e>
+ 320:	15 c0       	rjmp	.+42     	; 0x34c <__vector_1+0x5c>
+ 322:	82 30       	cpi	r24, 0x02	; 2
+ 324:	91 05       	cpc	r25, r1
+ 326:	59 f0       	breq	.+22     	; 0x33e <__vector_1+0x4e>
+ 328:	03 97       	sbiw	r24, 0x03	; 3
+ 32a:	69 f0       	breq	.+26     	; 0x346 <__vector_1+0x56>
+ 32c:	0f c0       	rjmp	.+30     	; 0x34c <__vector_1+0x5c>
+		case Mode0:	
+			ModeOption = Mode1;
+ 32e:	81 e0       	ldi	r24, 0x01	; 1
+ 330:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__DATA_REGION_ORIGIN__>
+			break;
+ 334:	0e c0       	rjmp	.+28     	; 0x352 <__vector_1+0x62>
+		case Mode1:
+			ModeOption = Mode2;
+ 336:	82 e0       	ldi	r24, 0x02	; 2
+ 338:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__DATA_REGION_ORIGIN__>
+			break;
+ 33c:	0a c0       	rjmp	.+20     	; 0x352 <__vector_1+0x62>
+		case Mode2: 
+			ModeOption = Mode3; 
+ 33e:	83 e0       	ldi	r24, 0x03	; 3
+ 340:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__DATA_REGION_ORIGIN__>
+			break;
+ 344:	06 c0       	rjmp	.+12     	; 0x352 <__vector_1+0x62>
+		case Mode3:	
+			ModeOption = Mode0;
+ 346:	10 92 00 01 	sts	0x0100, r1	; 0x800100 <__DATA_REGION_ORIGIN__>
+			break;
+ 34a:	03 c0       	rjmp	.+6      	; 0x352 <__vector_1+0x62>
+		default:
+			ModeOption = Mode0;
+ 34c:	10 92 00 01 	sts	0x0100, r1	; 0x800100 <__DATA_REGION_ORIGIN__>
+			break;
+ 350:	00 00       	nop
+			
+	}
+	ChangeMode = 1; 
+ 352:	81 e0       	ldi	r24, 0x01	; 1
+ 354:	80 93 02 01 	sts	0x0102, r24	; 0x800102 <ChangeMode>
+ 358:	00 00       	nop
+ 35a:	df 91       	pop	r29
+ 35c:	cf 91       	pop	r28
+ 35e:	9f 91       	pop	r25
+ 360:	8f 91       	pop	r24
+ 362:	0f 90       	pop	r0
+ 364:	00 92 5f 00 	sts	0x005F, r0	; 0x80005f <__TEXT_REGION_LENGTH__+0x7e005f>
+ 368:	0f 90       	pop	r0
+ 36a:	1f 90       	pop	r1
+ 36c:	18 95       	reti
 
-00000140 <_exit>:
- 140:	f8 94       	cli
+0000036e <_exit>:
+ 36e:	f8 94       	cli
 
-00000142 <__stop_program>:
- 142:	ff cf       	rjmp	.-2      	; 0x142 <__stop_program>
+00000370 <__stop_program>:
+ 370:	ff cf       	rjmp	.-2      	; 0x370 <__stop_program>

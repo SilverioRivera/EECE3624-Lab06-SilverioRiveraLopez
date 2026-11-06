@@ -19,27 +19,29 @@
 #include <avr/io.h>              // Needed for AVR IO defines
 #include <avr/interrupt.h>       // Needed for AVR interupt devines
 
-#define LEDS            PORTA    // alias PORTA
+#define LEDS  PORTA    // alias PORTA
 
 	
 // global variables for communication between ISRs and main
 const unsigned char TCNT0_COUNT_SET = 0x8E;// Count for 1ms loop (Provided by Prof Hutton)
 // <TBD> Your global variables should go here
-//enum Modes {Mode1, Mode2, Mode3}; 
-//enum Modes ModeOption;
+enum Modes {Mode0, Mode1, Mode2, Mode3}; 
+	
+volatile enum Modes ModeOption = Mode0;
+volatile unsigned char Tick = 0;
+volatile unsigned char ChangeMode = 0;
+	
 
 int main(void){
 	// Variables for main
 	// <TBD> Your local main variables should go here
-	//volatile unsigned int Mode = 0;
-	//volatile unsigned int Tick = 0;
-	 
+	unsigned char LEDposition = 0;
+	signed char direction = 1;
 	
-	// State machine initialization.
-	//while(Tick == 50){
-		
-		
-	} 
+	ModeOption = Mode0;
+	Tick = 0;
+	ChangeMode = 0;
+	
 	// Initialization for LEDs 
 	// LEDs using A0-A7) 
 	
@@ -74,24 +76,101 @@ int main(void){
 	// Configure the joystick button.
 	// (Prof Note: you will need to add another jumper wire, or 
 	// change the ones you have, to get the center button working!
+	TCNT0 = TCNT0_COUNT_SET;
+	TCCR0 = (1 << CS01) | (1 << CS00);
+	TIMSK |= (1 << TOIE0);
 	
-	// <TBD>  Student code here
+	
+	// JoyStick
+	
+	DDRB &= ~(1 << PB4);
+	PORTB |= (1 << PB4);
+	DDRD &= ~(1 << PD0);
+	PORTD |= (1 << PD0);
+	
+	
+	
 	
 	// Interrupt Enable Block
 	// Using your Lab05 code, you will need to update these
 	// lines from 0x00 to have the appropriate mask.
-	EICRA = 0x00;  // <TBD> Needs to be updated!
-	EIMSK = 0x00;  // <TBD> Needs to be updated!
+	EICRA = (1 << ISC01) | (1 << ISC00);  // <TBD> Needs to be updated!
+	EIMSK = (1 << INT0);  // <TBD> Needs to be updated!
 	// Enable Global Interrupts
 	sei();
 	
 	// Main Loop
 	while (1) {
 		// Your game loop will go here.
-		
+		if( ChangeMode)
+		{
+			LEDposition = 0;
+			direction = 1;
+			ChangeMode = 0;
+			Tick = 0;
+			LEDS = 0xFF; 
+		}
 		// <TBD>  Game Loop
 		
+	
+		if (Tick >= 50)
+		{
+			Tick = 0;
+		
+			switch (ModeOption)
+			{
+			case Mode0:
+				LEDS = (unsigned char)~(1 << LEDposition);
+				LEDposition++;
+				
+				if (LEDposition >= 8)
+				{
+					LEDposition = 0;
+				}
+				
+				break;
+				
+			case Mode1: 
+				LEDS = (unsigned char)~(1 << (7 - LEDposition));
+				LEDposition++;
+				
+				if( LEDposition >= 8)
+				{
+					LEDposition = 0;
+				}
+				
+				break;
+				
+			case Mode2:
+				LEDS = (unsigned char)~(1 << LEDposition);
+				
+				if (LEDposition ==7)
+				{
+					direction = -1;
+				}
+				
+				else if (LEDposition == 0)
+				{
+					direction = 1;
+				}
+				
+				LEDposition += direction;
+				
+				break;
+				
+			case Mode3:
+					
+				LEDS = 0xFF;
+				break;
+			default:
+				
+				ModeOption = Mode0;
+				break;
+			}
+		}
+	
 	}
+return 0;
 }
 
 // This is the required format of an ISR routine for a 
@@ -101,6 +180,11 @@ int main(void){
 ISR(TIMER0_OVF_vect){
 	
 	// <TBD>  ISR code for timer interrupt.
+	TCNT0 = TCNT0_COUNT_SET;
+	
+	if (Tick < 50){
+		Tick++;
+	}
 	
 }
 
@@ -110,20 +194,23 @@ ISR(TIMER0_OVF_vect){
 ISR(INT0_vect){
 	
 	// <TBD>  
-	//switch(ModeOption){
-	//	case 0:	
-		//	Mode == 1;
-			//break;
-		//case 1:
-			//Mode == 2;
-			//break;
-		//case 2: 
-			//Mode == 3; 
-			//break;
-		//case 3:	
-			//Mode == 0;
-			//break;
+	switch(ModeOption){
+		case Mode0:	
+			ModeOption = Mode1;
+			break;
+		case Mode1:
+			ModeOption = Mode2;
+			break;
+		case Mode2: 
+			ModeOption = Mode3; 
+			break;
+		case Mode3:	
+			ModeOption = Mode0;
+			break;
+		default:
+			ModeOption = Mode0;
+			break;
 			
 	}
-	
+	ChangeMode = 1; 
 }
