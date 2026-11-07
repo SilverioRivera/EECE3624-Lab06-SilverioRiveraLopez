@@ -113,7 +113,7 @@ int main(void){
 		// <TBD>  Game Loop
 		
 	
-		if (Tick >= 50)
+		if (Tick >= 180)
 		{
 			Tick = 0;
 		
@@ -160,7 +160,7 @@ int main(void){
 				
 			case Mode3:
 					
-				LEDS = 0xFF;
+				LEDS = 0xFF; // all of them are off. A simple implementation
 				break;
 			default:
 				
@@ -182,7 +182,7 @@ ISR(TIMER0_OVF_vect){
 	// <TBD>  ISR code for timer interrupt.
 	TCNT0 = TCNT0_COUNT_SET;
 	
-	if (Tick < 50){
+	if (Tick < 180){
 		Tick++;
 	}
 	

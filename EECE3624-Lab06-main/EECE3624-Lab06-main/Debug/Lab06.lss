@@ -308,9 +308,9 @@ int main(void){
 		// <TBD>  Game Loop
 		
 	
-		if (Tick >= 50)
+		if (Tick >= 180)
  19c:	80 91 01 01 	lds	r24, 0x0101	; 0x800101 <Tick>
- 1a0:	82 33       	cpi	r24, 0x32	; 50
+ 1a0:	84 3b       	cpi	r24, 0xB4	; 180
  1a2:	60 f3       	brcs	.-40     	; 0x17c <main+0xb4>
 		{
 			Tick = 0;
@@ -529,9 +529,9 @@ ISR(TIMER0_OVF_vect){
  2b8:	fc 01       	movw	r30, r24
  2ba:	20 83       	st	Z, r18
 	
-	if (Tick < 50){
+	if (Tick < 180){
  2bc:	80 91 01 01 	lds	r24, 0x0101	; 0x800101 <Tick>
- 2c0:	82 33       	cpi	r24, 0x32	; 50
+ 2c0:	84 3b       	cpi	r24, 0xB4	; 180
  2c2:	28 f4       	brcc	.+10     	; 0x2ce <__vector_16+0x40>
 		Tick++;
  2c4:	80 91 01 01 	lds	r24, 0x0101	; 0x800101 <Tick>
